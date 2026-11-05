@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f7f2">
+    <meta name="description" content="Food Verse AI — Explore food recognition, nutrition estimates, freshness predictions, and meal planning.">
+    <title>Food Verse AI | Smart Food Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">FV</span>
+            <span>Food Verse <strong>AI</strong></span>
+        </a>
+
+    <nav aria-label="Main navigation">
+        <a href="#food-analyzer">Food Analyzer</a>
+        <a href="#freshness">Freshness</a>
+        <a href="#meal-planner">Meal Planner</a>
+        <a href="#cooking-assistant">Cooking Assistant</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-button" type="button"
+            aria-label="Toggle dark mode">🌙</button>
+</header>
+
+<main>
+    <section class="hero">
+        <span class="eyebrow">MULTIMODAL FOOD INTELLIGENCE</span>
+        <h1>Understand your food.<br><span>Make informed choices.</span></h1>
+        <p>
+            Explore food recognition, estimated nutrition, experimental
+            freshness predictions, and meal planning in one place.
+        </p>
+        <a class="primary-button" href="#food-analyzer">Analyze Food →</a>
+    </section>
+
+    <section class="section" id="food-analyzer">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">01 / FOOD RECOGNITION</span>
+                <h2>Analyze your food</h2>
+                <p>Upload a food image to identify the food and view its estimates.</p>
+            </div>
+        </div>
+
+        <div class="analyzer-grid">
+            <form id="foodForm" class="panel">
+                <label for="foodImage" class="upload-area" id="foodDropArea">
+                    <span class="upload-icon">↑</span>
+                    <strong>Choose a food image</strong>
+                    <span>Click here to select JPG, PNG, or WEBP</span>
+                    <span class="file-name" id="foodFileName">No image selected</span>
+                </label>
+                <input type="file" id="foodImage" accept="image/jpeg,image/png,image/webp" required>
+                <img id="foodPreview" class="image-preview" alt="Selected food preview" hidden>
+                <button class="primary-button full-width" type="submit">Analyze Food</button>
+                <p class="status" id="foodStatus" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="panel results-panel" id="foodResults" aria-live="polite">
+                <div class="empty-state">
+                    <span class="empty-icon">✳</span>
+                    <h3>Your results will appear here</h3>
+                    <p>Upload a food image to see the model's prediction and nutrition estimates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="freshness">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">02 / FRESHNESS</span>
+                <h2>Explore freshness predictions</h2>
+                <p>Submit an image to view the experimental model's prediction.</p>
+            </div>
+        </div>
+
+        <form id="freshnessForm" class="panel freshness-form">
+            <label for="freshnessImage">Select a food image</label>
+            <input type="file" id="freshnessImage"
+                   accept="image/jpeg,image/png,image/webp" required>
+            <button class="primary-button" type="submit">Check Freshness</button>
+            <p class="status" id="freshnessStatus" role="status" aria-live="polite"></p>
+            <div id="freshnessResults" aria-live="polite"></div>
+        </form>
+        <p class="notice">
+            Experimental prediction only. This model cannot confirm whether
+            food is safe to eat.
+        </p>
+    </section>
+
+    <section class="section" id="meal-planner">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">03 / MEAL PLANNING</span>
+                <h2>Personalized Meal Planner</h2>
+                <p>Explore sample meal recommendations based on your food preference and daily goals.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <form id="mealForm" class="meal-form">
+
+                <label for="mealPreference">Meal preference</label>
+                <select id="mealPreference" required>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="non-vegetarian">Non-Vegetarian</option>
+                </select>
+
+                <label for="mealGoal">Choose your meal goal</label>
+                <select id="mealGoal" required>
+                    <option value="balanced">Balanced Everyday Nutrition</option>
+                    <option value="energy">Energy for Daily Activities</option>
+                    <option value="protein">Protein-Inclusive Meals</option>
+                </select>
+
+                <button class="primary-button" type="submit">
+                    Generate Personalized Meal Plan
+                </button>
+            </form>
+
+            <div id="mealResults" class="meal-results" aria-live="polite">
+                <p class="muted">
+                Select your food preference and meal goal to generate your sample plan.
+                </p>
+            </div>
+
+            <p class="notice">
+                These are rule-based educational meal suggestions.
+                They are general examples, not personalized medical or
+                dietary advice.
+            </p>
+        </div>
+    </section>
+
+
+    <section class="section" id="cooking-assistant">
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">04 / SMART KITCHEN</span>
+            <h2>Smart Cooking Assistant</h2>
+            <p>Enter your available ingredients to explore recipe suggestions and cooking instructions.</p>
+        </div>
+    </div>
+
+    <div class="panel">
+        <form id="cookingForm">
+            <label for="cookingIngredients">
+                Available ingredients
+            </label>
+
+            <textarea
+                id="cookingIngredients"
+                rows="3"
+                placeholder="Example: potato, tomato, onion, rice..."
+                required
+            ></textarea>
+
+            <button class="primary-button" type="submit">
+                Generate Recipe
+            </button>
+        </form>
+
+        <div id="cookingResults" aria-live="polite">
+            <p class="muted">
+                Your recipe suggestions will appear here.
+            </p>
+        </div>
+
+        <p class="notice">
+            Recipe suggestions are generated using basic predefined
+            cooking rules and are for educational purposes.
+        </p>
+    </div>
+</section>
+
+
+    <section class="section" id="about">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">ABOUT THE PROJECT</span>
+                <h2>Food intelligence, made approachable</h2>
+            </div>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <span>⌕</span>
+                <h3>Food Recognition</h3>
+                <p>Uses an image classification model to predict food categories.</p>
+            </article>
+            <article class="feature-card">
+                <span>◉</span>
+                <h3>Nutrition Estimates</h3>
+                <p>Displays approximate nutrition values for a reference serving.</p>
+            </article>
+            <article class="feature-card">
+                <span>❋</span>
+                <h3>Freshness Prediction</h3>
+                <p>Provides an experimental image-based freshness prediction.</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <a href="#" class="brand">
+        <span class="brand-icon">FV</span>
+        <span>Food Verse <strong>AI</strong></span>
+    </a>
+    <p>Educational prototype · AI predictions may be incorrect.</p>
+</footer>
+
+</body>
+</html>

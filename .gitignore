@@ -1,0 +1,28 @@
+
+# Python virtual environments
+venv/
+backend/venv/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Model weights
+*.pt
+!backend/yolo26n.pt
+*.pth
+
+# Node dependencies
+node_modules/
+
+# IDE and system files
+.vscode/
+.DS_Store
+
+# Backup files
+backend/main_backup_before_freshness.py
