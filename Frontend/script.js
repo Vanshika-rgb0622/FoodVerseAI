@@ -1,7 +1,7 @@
 "use strict";
 
 // Local FastAPI backend address.
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://richard-capability-sci-nails.trycloudflare.com";
 
 // Food analysis elements.
 const foodForm = document.getElementById("foodForm");
